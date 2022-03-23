@@ -1,36 +1,33 @@
 import {createStore} from 'redux';
+import allReducers from './Reducers/app';
 
 function App() {
 
-  // store Global state
+  const store = createStore(allReducers);
 
-// action 
-const increment = () =>{
-  return {
-      type: 'increment'
-  }
-}
-const decrement = () =>{
-  return {
-      type: 'decrement'
-  }
-}
+//   // store Global state
 
-// reducer
-const counter = (state = 0, action)=>{
-  switch(action.type){
-      case "increment" : 
-      return state + 1;
-      case "decrement" : 
-      return state -1;
-  }
-}
+// // action 
+// const increment = () =>{
+//   return {
+//       type: 'increment'
+//   }
+// }
+// const decrement = () =>{
+//   return {
+//       type: 'decrement'
+//   }
+// }
 
-let store = createStore(counter);
-
-store.subscribe(()=>console.log(store.getState()));
-// dispatch
-store.dispatch(increment());
+// // reducer
+// const counter = (state = 0, action)=>{
+//   switch(action.type){
+//       case "increment" : 
+//       return state + 1;
+//       case "decrement" : 
+//       return state -1;
+//   }
+// }
   
   return (
     <div className="App">

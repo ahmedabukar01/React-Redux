@@ -4,6 +4,8 @@ const counter = (state = 0, action)=>{
             return state + 1;
         case "decrement": 
             return state -1;
+        default : 
+        return state;
     }
 }
 
