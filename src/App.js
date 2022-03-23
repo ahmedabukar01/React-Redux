@@ -1,4 +1,3 @@
-import './App.css';
 import {createStore} from 'redux';
 
 function App() {
