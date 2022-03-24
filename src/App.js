@@ -1,10 +1,12 @@
-import {createStore} from 'redux';
-import allReducers from './Reducers/app';
+import { useSelector, useDispatch } from 'react-redux';
+import {increment , decrement} from './Actions'
 
 function App() {
 
-  const store = createStore(allReducers);
+  const counter = useSelector(state=> state.counter);
+  const isLogged = useSelector(state=>state.signIn);
 
+  const dispatch = useDispatch();
 //   // store Global state
 
 // // action 
@@ -31,7 +33,10 @@ function App() {
   
   return (
     <div className="App">
-     
+     <h2>counter: {counter}</h2>
+     <button onClick={()=> dispatch(increment())}>+</button>
+     <button onClick={()=> dispatch(decrement())}>-</button>
+     {isLogged && <h3>you can't see this if you are not logged in</h3>}
     </div>
   );
 }
